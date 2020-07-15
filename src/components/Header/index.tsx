@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors, fonts, mq, sizes } from "../../styles/theme"
+import { colors, fonts, mq, sizes } from '../../styles/theme';
 import { BaseContainer } from '../BaseComponents';
 import { Logo } from '../../icons';
 import { GenericPageBlocksFragment } from '../../../gatsby-graphql';

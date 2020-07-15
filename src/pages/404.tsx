@@ -1,6 +1,5 @@
 import React from 'react';
-import IndexPage from './index';
 
-const NotFoundPage: React.FC = () => <IndexPage />;
+const NotFoundPage: React.FC = () => <p>404</p>;
 
 export default NotFoundPage;
