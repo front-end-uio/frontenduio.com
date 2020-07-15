@@ -27,6 +27,7 @@ const Section = styled.section`
   width: 100%;
   display: flex;
   padding-top: 4rem;
+  padding-bottom: 1.5rem;
   ${mq.desktop} {
     min-height: calc(100vh - ${sizes.headerDesktopHeight});
     padding-top: 0;

@@ -17,3 +17,26 @@ export const heroFragment = graphql`
     }
   }
 `;
+
+export const sponsorsFragment = graphql`
+  fragment Sponsors on ContentfulSponsors {
+    copy {
+      json
+    }
+    list {
+      id
+      name
+      url
+      logo {
+        fluid(
+          maxWidth: 200
+          resizingBehavior: FILL
+          cropFocus: CENTER
+          quality: 100
+        ) {
+          ...GatsbyContentfulFluid_withWebp
+        }
+      }
+    }
+  }
+`;
