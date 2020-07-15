@@ -346,6 +346,7 @@ export type ContentfulBlock = Node & {
   children: Array<Node>;
   internal: Internal;
   name?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
   slug?: Maybe<Scalars['String']>;
   content?: Maybe<Array<Maybe<ContentfulCollaboratorsContentfulHeroContentfulSponsorsUnion>>>;
   generic_page_template?: Maybe<Array<Maybe<ContentfulGenericPageTemplate>>>;
@@ -488,6 +489,7 @@ export type ContentfulBlockFieldsEnum =
   | 'internal___owner'
   | 'internal___type'
   | 'name'
+  | 'title'
   | 'slug'
   | 'generic_page_template'
   | 'generic_page_template___id'
@@ -586,6 +588,7 @@ export type ContentfulBlockFieldsEnum =
   | 'generic_page_template___blocks___internal___owner'
   | 'generic_page_template___blocks___internal___type'
   | 'generic_page_template___blocks___name'
+  | 'generic_page_template___blocks___title'
   | 'generic_page_template___blocks___slug'
   | 'generic_page_template___blocks___generic_page_template'
   | 'generic_page_template___blocks___generic_page_template___id'
@@ -627,6 +630,7 @@ export type ContentfulBlockFilterInput = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   name?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
   slug?: Maybe<StringQueryOperatorInput>;
   generic_page_template?: Maybe<ContentfulGenericPageTemplateFilterListInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
@@ -1015,6 +1019,7 @@ export type ContentfulCollaboratorFieldsEnum =
   | 'collaborators___block___internal___owner'
   | 'collaborators___block___internal___type'
   | 'collaborators___block___name'
+  | 'collaborators___block___title'
   | 'collaborators___block___slug'
   | 'collaborators___block___generic_page_template'
   | 'collaborators___block___generic_page_template___id'
@@ -1589,6 +1594,7 @@ export type ContentfulCollaboratorsFieldsEnum =
   | 'list___collaborators___block___id'
   | 'list___collaborators___block___children'
   | 'list___collaborators___block___name'
+  | 'list___collaborators___block___title'
   | 'list___collaborators___block___slug'
   | 'list___collaborators___block___generic_page_template'
   | 'list___collaborators___block___spaceId'
@@ -1660,6 +1666,7 @@ export type ContentfulCollaboratorsFieldsEnum =
   | 'block___internal___owner'
   | 'block___internal___type'
   | 'block___name'
+  | 'block___title'
   | 'block___slug'
   | 'block___generic_page_template'
   | 'block___generic_page_template___id'
@@ -1693,6 +1700,7 @@ export type ContentfulCollaboratorsFieldsEnum =
   | 'block___generic_page_template___blocks___id'
   | 'block___generic_page_template___blocks___children'
   | 'block___generic_page_template___blocks___name'
+  | 'block___generic_page_template___blocks___title'
   | 'block___generic_page_template___blocks___slug'
   | 'block___generic_page_template___blocks___generic_page_template'
   | 'block___generic_page_template___blocks___spaceId'
@@ -2617,6 +2625,7 @@ export type ContentfulGenericPageTemplateFieldsEnum =
   | 'seo___generic_page_template___blocks___id'
   | 'seo___generic_page_template___blocks___children'
   | 'seo___generic_page_template___blocks___name'
+  | 'seo___generic_page_template___blocks___title'
   | 'seo___generic_page_template___blocks___slug'
   | 'seo___generic_page_template___blocks___generic_page_template'
   | 'seo___generic_page_template___blocks___spaceId'
@@ -2676,6 +2685,7 @@ export type ContentfulGenericPageTemplateFieldsEnum =
   | 'blocks___internal___owner'
   | 'blocks___internal___type'
   | 'blocks___name'
+  | 'blocks___title'
   | 'blocks___slug'
   | 'blocks___generic_page_template'
   | 'blocks___generic_page_template___id'
@@ -2709,6 +2719,7 @@ export type ContentfulGenericPageTemplateFieldsEnum =
   | 'blocks___generic_page_template___blocks___id'
   | 'blocks___generic_page_template___blocks___children'
   | 'blocks___generic_page_template___blocks___name'
+  | 'blocks___generic_page_template___blocks___title'
   | 'blocks___generic_page_template___blocks___slug'
   | 'blocks___generic_page_template___blocks___generic_page_template'
   | 'blocks___generic_page_template___blocks___spaceId'
@@ -3269,6 +3280,7 @@ export type ContentfulHeroFieldsEnum =
   | 'block___internal___owner'
   | 'block___internal___type'
   | 'block___name'
+  | 'block___title'
   | 'block___slug'
   | 'block___generic_page_template'
   | 'block___generic_page_template___id'
@@ -3302,6 +3314,7 @@ export type ContentfulHeroFieldsEnum =
   | 'block___generic_page_template___blocks___id'
   | 'block___generic_page_template___blocks___children'
   | 'block___generic_page_template___blocks___name'
+  | 'block___generic_page_template___blocks___title'
   | 'block___generic_page_template___blocks___slug'
   | 'block___generic_page_template___blocks___generic_page_template'
   | 'block___generic_page_template___blocks___spaceId'
@@ -4418,6 +4431,7 @@ export type ContentfulSeoMetaDataFieldsEnum =
   | 'generic_page_template___blocks___internal___owner'
   | 'generic_page_template___blocks___internal___type'
   | 'generic_page_template___blocks___name'
+  | 'generic_page_template___blocks___title'
   | 'generic_page_template___blocks___slug'
   | 'generic_page_template___blocks___generic_page_template'
   | 'generic_page_template___blocks___generic_page_template___id'
@@ -4870,6 +4884,7 @@ export type ContentfulSponsorFieldsEnum =
   | 'sponsors___block___internal___owner'
   | 'sponsors___block___internal___type'
   | 'sponsors___block___name'
+  | 'sponsors___block___title'
   | 'sponsors___block___slug'
   | 'sponsors___block___generic_page_template'
   | 'sponsors___block___generic_page_template___id'
@@ -5475,6 +5490,7 @@ export type ContentfulSponsorsFieldsEnum =
   | 'list___sponsors___block___id'
   | 'list___sponsors___block___children'
   | 'list___sponsors___block___name'
+  | 'list___sponsors___block___title'
   | 'list___sponsors___block___slug'
   | 'list___sponsors___block___generic_page_template'
   | 'list___sponsors___block___spaceId'
@@ -5546,6 +5562,7 @@ export type ContentfulSponsorsFieldsEnum =
   | 'block___internal___owner'
   | 'block___internal___type'
   | 'block___name'
+  | 'block___title'
   | 'block___slug'
   | 'block___generic_page_template'
   | 'block___generic_page_template___id'
@@ -5579,6 +5596,7 @@ export type ContentfulSponsorsFieldsEnum =
   | 'block___generic_page_template___blocks___id'
   | 'block___generic_page_template___blocks___children'
   | 'block___generic_page_template___blocks___name'
+  | 'block___generic_page_template___blocks___title'
   | 'block___generic_page_template___blocks___slug'
   | 'block___generic_page_template___blocks___generic_page_template'
   | 'block___generic_page_template___blocks___spaceId'
@@ -6993,6 +7011,7 @@ export type QueryContentfulBlockArgs = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   name?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
   slug?: Maybe<StringQueryOperatorInput>;
   generic_page_template?: Maybe<ContentfulGenericPageTemplateFilterListInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
@@ -8106,7 +8125,7 @@ export type SeoFragment = { seo?: Maybe<(
     & { image?: Maybe<{ file?: Maybe<Pick<ContentfulAssetFile, 'url'>> }> }
   )> };
 
-export type GenericPageBlocksFragment = { blocks?: Maybe<Array<Maybe<(
+export type GenericPageBlocksFragment = { nav?: Maybe<Array<Maybe<Pick<ContentfulBlock, 'slug' | 'title'>>>>, blocks?: Maybe<Array<Maybe<(
     Pick<ContentfulBlock, 'slug'>
     & { content?: Maybe<Array<Maybe<(
       { __typename: 'ContentfulCollaborators' }

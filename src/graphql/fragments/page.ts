@@ -16,6 +16,10 @@ export const SeoFragment = graphql`
 
 export const GenericPageBlocksFragment = graphql`
   fragment GenericPageBlocks on ContentfulGenericPageTemplate {
+    nav: blocks {
+      slug
+      title
+    }
     blocks {
       slug
       content {

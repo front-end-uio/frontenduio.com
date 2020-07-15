@@ -17,10 +17,13 @@ const Blocks: React.FC<IBlockProps> = ({ blocks }) => (
         if (!ComponentName || !ContentBlocks[ComponentName]) return null;
         const Component = ContentBlocks[ComponentName];
         return (
-          <Component
-            key={`${contentBlock?.__typename}-${index}`}
-            {...contentBlock}
-          />
+          <div key={`${contentBlock?.__typename}-${index}`}>
+            <div id={block.slug as string} />
+            <Component
+              key={`${contentBlock?.__typename}-${index}`}
+              {...contentBlock}
+            />
+          </div>
         );
       })
     )}
