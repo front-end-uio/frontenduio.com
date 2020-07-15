@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors, fonts } from '../../styles/theme';
+import { colors, fonts, mq } from '../../styles/theme';
 import { BaseContainer } from '../BaseComponents';
-import { GithubIcon, MeetupIcon, FacebookIcon, SlackIcon } from '../../icons';
 import useFooterMicroCopy from '../../graphql/hooks/useFooterMicroCopy';
 import BaseRichText from '../RichText/BaseRichText';
+import SocialIcons from '../SocialIcons';
 
 const Footer: React.FC = () => {
   const microCopy = useFooterMicroCopy();
@@ -14,40 +14,7 @@ const Footer: React.FC = () => {
         <div>
           <BaseRichText document={microCopy?.copy?.json} />
         </div>
-        <IconsContainer>
-          <a
-            href="https://github.com/front-end-uio"
-            target="_blank"
-            rel="noreferrer"
-            title="Github de FrontEnd uio"
-          >
-            <GithubIcon />
-          </a>
-          <a
-            href="https://www.facebook.com/frontendquito"
-            target="_blank"
-            rel="noreferrer"
-            title="Facebook de FrontEnd uio"
-          >
-            <FacebookIcon />
-          </a>
-          <a
-            href="https://www.meetup.com/frontenduio/"
-            target="_blank"
-            rel="noreferrer"
-            title="Meetup de FrontEnd uio"
-          >
-            <MeetupIcon />
-          </a>
-          <a
-            href="https://join.slack.com/t/frontenduio/shared_invite/zt-euc12sq8-Gu6MscDTsaGld_0XdPnHVw"
-            target="_blank"
-            rel="noreferrer"
-            title="Slack de FrontEnd uio"
-          >
-            <SlackIcon />
-          </a>
-        </IconsContainer>
+        <SocialIcons />
       </StyledBaseContainer>
     </StyledFooter>
   );
@@ -67,14 +34,16 @@ const StyledBaseContainer = styled(BaseContainer)`
   display: flex;
   align-items: center;
   justify-content: space-between;
-`;
-
-const IconsContainer = styled.div`
-  display: flex;
-  svg {
-    height: 24px;
-    fill: #383838;
-    margin: 0rem 0.5rem;
+  flex-direction: column;
+  p {
+    text-align: center;
+  }
+  ${mq.tablet} {
+    flex-direction: row;
+    p {
+      margin: 0;
+      text-align: left;
+    }
   }
 `;
 
