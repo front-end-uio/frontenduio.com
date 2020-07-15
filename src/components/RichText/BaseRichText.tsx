@@ -8,15 +8,20 @@ import InlineHyperlink from './CustomInlines/CustomHyperLink';
 
 interface IBlogRichText {
   document: Document;
+  className?: string;
 }
 
-const BaseRichText: React.FC<IBlogRichText> = ({ document }) => {
+const BaseRichText: React.FC<IBlogRichText> = ({ document, className }) => {
   const options: Options = {
     renderNode: {
       [INLINES.HYPERLINK]: InlineHyperlink,
     },
   };
-  return <>{documentToReactComponents(document, options)}</>;
+  return (
+    <div className={className}>
+      {documentToReactComponents(document, options)}
+    </div>
+  );
 };
 
 export default BaseRichText;
