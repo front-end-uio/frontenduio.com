@@ -4,23 +4,25 @@ import Layout from '../components/Layout';
 import { HomePageQuery } from '../../gatsby-graphql';
 import Blocks from '../components/Blocks';
 
-interface IHomePageProps {
+interface IGenericPageTemplateProps {
   data: HomePageQuery;
 }
 
-const IndexPage: React.FC<IHomePageProps> = ({ data: { page } }) => (
-  <Layout seoData={page?.seo} nav={page?.nav}>
+const GenericPageTemplate: React.FC<IGenericPageTemplateProps> = ({
+  data: { page },
+}) => (
+  <Layout nav={page?.nav}>
     <Blocks blocks={page?.blocks} />
   </Layout>
 );
 
 export const pageQuery = graphql`
-  query HomePage {
-    page: contentfulGenericPageTemplate(pathName: { eq: "/" }) {
+  query GenericPage($id: String!) {
+    page: contentfulGenericPageTemplate(id: { eq: $id }) {
       ...Seo
       ...GenericPageBlocks
     }
   }
 `;
 
-export default IndexPage;
+export default GenericPageTemplate;
