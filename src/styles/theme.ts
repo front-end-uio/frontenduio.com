@@ -11,6 +11,9 @@ export const colors = {
     primary: '#011638',
     secondary: '#042A67',
   },
+  light: {
+    border: 'rgba(162,162,162,0.3)',
+  },
   dark: {
     border: 'rgba(162,162,162,0.5)',
   },
