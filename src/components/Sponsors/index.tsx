@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import GatsbyImage, { FluidObject } from 'gatsby-image';
 import { SponsorsFragment } from '../../../gatsby-graphql';
 import { BaseContainer } from '../BaseComponents';
-import { colors, fonts, mq } from "../../styles/theme"
+import { colors, fonts, mq } from '../../styles/theme';
 import BaseRichText from '../RichText/BaseRichText';
 
 type ISponsorsProps = SponsorsFragment;
@@ -46,7 +46,7 @@ const StyledBaseRichText = styled(BaseRichText)`
       font-size: 1.5rem;
     }
     ${mq.desktop} {
-      font-size: 2.25rem;
+      font-size: 1.75rem;
     }
   }
 `;
