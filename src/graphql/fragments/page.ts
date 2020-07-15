@@ -26,6 +26,9 @@ export const GenericPageBlocksFragment = graphql`
         ... on ContentfulSponsors {
           ...Sponsors
         }
+        ... on ContentfulCollaborators {
+          ...Collaborators
+        }
       }
     }
   }

@@ -31,6 +31,7 @@ const Section = styled.section`
   ${mq.desktop} {
     min-height: calc(100vh - ${sizes.headerDesktopHeight});
     padding-top: 0;
+    padding-bottom: 0;
     align-items: center;
   }
 `;

@@ -40,3 +40,25 @@ export const sponsorsFragment = graphql`
     }
   }
 `;
+
+export const collaboratorsFragment = graphql`
+  fragment Collaborators on ContentfulCollaborators {
+    copy {
+      json
+    }
+    list {
+      id
+      name
+      image {
+        fluid(
+          maxWidth: 200
+          resizingBehavior: FILL
+          cropFocus: CENTER
+          quality: 100
+        ) {
+          ...GatsbyContentfulFluid_withWebp
+        }
+      }
+    }
+  }
+`;
