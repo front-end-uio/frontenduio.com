@@ -1,20 +1,19 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
-import { SeoDataQuery } from '../../gatsby-graphql';
+import { SeoDataQuery, SeoFragment } from '../../../gatsby-graphql';
 
-interface ISeoProps {
+export interface ISeoProps {
+  seoData?: SeoFragment['seo'] | null;
   lang?: string;
 }
 
-const Seo: React.FC<ISeoProps> = ({ lang }) => {
+const Seo: React.FC<ISeoProps> = ({ lang, seoData }) => {
   const { site } = useStaticQuery<SeoDataQuery>(
     graphql`
       query SeoData {
         site {
           siteMetadata {
-            title
-            description
             author
           }
         }
@@ -22,14 +21,17 @@ const Seo: React.FC<ISeoProps> = ({ lang }) => {
     `
   );
 
-  const metaDescription = site?.siteMetadata?.description as string;
-  const metaTitle = site?.siteMetadata?.title as string;
+  const metaDescription = seoData?.description as string;
+  const metaTitle = seoData?.title as string;
+  const metaImage = seoData?.image?.file?.url as string;
   const metaAuthor = site?.siteMetadata?.author as string;
+
+  const title = metaTitle ? `${metaTitle} | FrontEnd uio` : 'FrontEnd uio';
 
   return (
     <Helmet
       htmlAttributes={{ lang }}
-      title={metaTitle}
+      title={title}
       meta={[
         {
           name: `description`,
@@ -37,7 +39,7 @@ const Seo: React.FC<ISeoProps> = ({ lang }) => {
         },
         {
           property: `og:title`,
-          content: metaTitle,
+          content: title,
         },
         {
           property: `og:description`,
@@ -46,6 +48,10 @@ const Seo: React.FC<ISeoProps> = ({ lang }) => {
         {
           property: `og:type`,
           content: `website`,
+        },
+        {
+          property: `og:image`,
+          content: metaImage,
         },
         {
           name: `twitter:card`,
@@ -57,11 +63,15 @@ const Seo: React.FC<ISeoProps> = ({ lang }) => {
         },
         {
           name: `twitter:title`,
-          content: metaTitle,
+          content: title,
         },
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          name: `twitter:image`,
+          content: metaImage,
         },
       ]}
     />
