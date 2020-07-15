@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+require('dotenv').config();
+
 module.exports = {
   siteMetadata: {
     title: `FrontEnduio`,
@@ -25,6 +28,16 @@ module.exports = {
       options: {
         rule: {
           include: `${__dirname}/src/icons`,
+        },
+      },
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        richText: {
+          resolveFieldLocales: true,
         },
       },
     },
