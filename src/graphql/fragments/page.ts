@@ -33,6 +33,9 @@ export const GenericPageBlocksFragment = graphql`
         ... on ContentfulCollaborators {
           ...Collaborators
         }
+        ... on ContentfulMembers {
+          ...Members
+        }
       }
     }
   }

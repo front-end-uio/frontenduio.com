@@ -62,3 +62,21 @@ export const collaboratorsFragment = graphql`
     }
   }
 `;
+
+export const membersFragment = graphql`
+  fragment Members on ContentfulMembers {
+    list {
+      name
+      image {
+        fluid(
+          maxWidth: 300
+          resizingBehavior: FILL
+          cropFocus: CENTER
+          quality: 100
+        ) {
+          ...GatsbyContentfulFluid_withWebp
+        }
+      }
+    }
+  }
+`;
